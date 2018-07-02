@@ -230,8 +230,8 @@ function iceTable(N, M) {
   //-- Replace the assignment of the N and M constant in the code:
   //--  N=2,  M=2, by the actual values of N and M
   let verilog_code = obj.design.graph.blocks[3].data.code
-  verilog_code = verilog_code.replace("N = 2", "N = " + N);
-  verilog_code = verilog_code.replace("M = 2", "M = " + M);
+  verilog_code = verilog_code.replace("N = 2;", "N = " + N + ";");
+  verilog_code = verilog_code.replace("M = 2;", "M = " + M + ";");
   //console.log(verilog_code);
   obj.design.graph.blocks[3].data.code = verilog_code;
 
