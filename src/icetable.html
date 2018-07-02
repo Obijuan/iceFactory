@@ -7,14 +7,31 @@
     </script>
     <script src="icetable_front.js">
     </script>
+    <style media="screen">
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
 
   </head>
   <body>
     <img src="../images/icefactory-tables.png" alt="IceFactory image" style="width:400px">
-    <H1>Tablas combinacionales</H1>
-    Bits de entrada: <input id="Value_N" type="text" name="N" size=2 value="2">
-    Bits de salida: <input id="Value_M" type="text" name="M" size=2 value="4"><br>
-    <button type="button" onclick="iceTable_gen()">Generar</button>
-    <a href="" id="obj_file"></a>
+
+    <h1>Tablas combinacionales</h1>
+    <p>Genera tu  <b>bloque de Icestudio</b> para hacer circuitos <b>combinaciones</b> de N entradas y M salidas a partir de su <b>tabla de verdad</b>
+    </p>
+
+    <img src="../images/table-block.png" alt="table icon" />
+
+    <p>
+      Bits de entrada: <input id="Value_N" type="text" name="N" size=2 value="2">
+      Bits de salida: <input id="Value_M" type="text" name="M" size=2 value="4"><br>
+    </p>
+
+    <p>
+      <button type="button" onclick="iceTable_gen()">Generar</button>
+      <a href="" id="obj_file"></a>
+    </p>
+
   </body>
 </html>
