@@ -1,8 +1,14 @@
 //-- IceFactory
 //-- (C) 2018 Juan Gonzalez-Gomez (Obijuan)
-//-- LICENCIA LGPL
+//-- LICENCIA LGPL(
 
 //-- Generic table template (read from the table-template.ice)
+//-- It is a 2-input, 2-output table, created directly from Icestudio
+//-- This program reads this table as an object and change its properties
+//-- acording to the parameters N and M parameters
+//--  N = Number of inputs bits
+//-- M = Number of outputs bits
+
 let table_tamplate = {
   "version": "1.1",
   "package": {
@@ -163,16 +169,16 @@ let table_tamplate = {
 
 
 
-let fs = require('fs');
+
 
 
 //-- Table parameters
-let N = 2;
-let M = 1;
+let N = 2;  //-- Number of input bits
+let M = 1;  //-- Number of output bits
 
 console.log("Welcome to the IceFactory!");
 
-//-- Read the icestudio template for the constant
+//-- Read the icestudio template for the table
 let obj = table_tamplate;
 
 //-- Debug: read the template from a file
@@ -184,8 +190,9 @@ obj.package.version = "0.2"
 obj.package.description = "Circuito combinacional de " + N + " entradas y " + M + " salidas"
 obj.package.author = "IceFactory 0.1"
 
-//-- Set the input size
+//-------------- Set the input size
 
+//-- Generate N pins for the input port
 let ipins = [];
 for (i = 0; i < N; i++) {
   let ipin = {
@@ -199,6 +206,8 @@ for (i = 0; i < N; i++) {
 
 obj.design.graph.blocks[0].data.pins = ipins;
 
+//-- Change more properties for making the input to have N inputs
+
 let irange =  "[" + (N-1) + ":0]"; //-- Input range
 let isize = N;
 obj.design.graph.blocks[0].data.range = irange;
@@ -206,8 +215,9 @@ obj.design.graph.wires[1].size = isize;
 obj.design.graph.blocks[3].data.ports.in[0].range = irange;
 obj.design.graph.blocks[3].data.ports.in[0].size = isize;
 
-//-- Set the output size
+//----------------- Set the output size
 
+//-- Generate M pins for the output port
 let opins = [];
 for (i = 0; i < M; i++) {
   let opin = {
@@ -221,7 +231,7 @@ for (i = 0; i < M; i++) {
 
 obj.design.graph.blocks[1].data.pins = opins;
 
-
+//-- Change more properties for making the input to have M outputs
 let orange = "[" + (M-1) + ":0]";
 let osize = M;
 obj.design.graph.blocks[1].data.range = orange;
@@ -239,15 +249,16 @@ obj.design.graph.blocks[3].data.code = verilog_code;
 //-- Debug
 //console.log("Input size: " + obj.design.graph.blocks[0].data.range);
 //console.log("Output size: " + obj.design.graph.blocks[1].data.range);
-
-
 //console.log("JSON: " + obj.package.name)
 
 
+//--- Generated the outfile Icestudio file with the new block
 const OUTPUT_FILENAME = "tabla-" + N + "-" + M + ".ice";
 console.log("File generated: " + OUTPUT_FILENAME)
 
-//-- Write the icestudio block
+let fs = require('fs');
+
+//-- Write the icestudio block into a file
 let json = JSON.stringify(obj);
 fs.writeFile(OUTPUT_FILENAME, json, (err) => {
   if (err)
