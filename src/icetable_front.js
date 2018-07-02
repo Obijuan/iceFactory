@@ -40,6 +40,6 @@ function iceTable_gen() {
   //-------------- Add the link to the icestudio file
   var a = document.getElementById("obj_file");
   a.href = url;
-  a.innerHTML = "Descargar fichero";
+  a.innerHTML = "Descargar fichero: " + OUTPUT_FILENAME;
   a.download = file.name;
 }
