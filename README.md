@@ -1,9 +1,15 @@
 # iceFactory
 A Javascript library for generating blocks for the ICEstudio FPGA development  environment
 
-## Initial test
+## Table generator
 
-Jul-2nd-2018
+Try the [Table generator](https://obijuan.github.io/iceFactory/src/icetable.html). Generate the blocks for combinational circuits of N inputs and M outputs
+
+
+# LOG
+
+## 2018-July-2: Initial test
+
 
 * Edit the **main.js** file
 * **Change** the **N** and **M** parameters (Number of inputs and outpus of the table)
