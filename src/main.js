@@ -174,7 +174,7 @@ let table_tamplate = {
 
 //-- Table parameters
 let N = 2;  //-- Number of input bits
-let M = 1;  //-- Number of output bits
+let M = 4;  //-- Number of output bits
 
 console.log("Welcome to the IceFactory!");
 
