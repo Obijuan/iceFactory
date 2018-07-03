@@ -10,6 +10,8 @@ const BLOCK_NAME = "mi-tabla";
 const BLOCK_VERSION = "0.1";
 const BLOCK_AUTHOR = "IceFactory 0.1";
 
+const VERILOG_TABLE = "\n//-- Bits del bus de entrada\nlocalparam N = 2;\n\n//-- Bits del bus de salida\nlocalparam M = 2;\n\n//-- Calcular tamaño de la tabla\n//-- (filas) segun los bits de entrada\nlocalparam TAM = 2 ** N;\n\n//-- Definición de la tabla\n//-- Tabla de TAM elementos de M bits\nreg [M-1:0] tabla[0:TAM-1];\n\n//-- Read the table\nassign q = tabla[i];\n\n//-- Init table from DATA parameters\ninitial begin\n  if (DATA) $readmemh(DATA, tabla);\nend";
+
 let table_template = {
   "version": "1.1",
   "package": {
@@ -95,7 +97,7 @@ let table_template = {
           "id": "48c38eba-4e12-44d9-a55b-a93def6a27db",
           "type": "basic.code",
           "data": {
-            "code": "\n//-- Bits del bus de entrada\nlocalparam N = 2;\n\n//-- Bits del bus de salida\nlocalparam M = 2;\n\n//-- Calcular tamaño de la tabla\n//-- (filas) segun los bits de entrada\nlocalparam TAM = 2 ** N;\n\n//-- Definición de la tabla\n//-- Tabla de TAM elementos de M bits\nreg [M-1:0] tabla[0:TAM-1];\n\n//-- Read the table\nassign q = tabla[i];\n\n//-- Init table from DATA parameters\ninitial begin\n  if (DATA) $readmemh(DATA, tabla);\nend",
+            "code": "",
             "params": [
               {
                 "name": "DATA"
@@ -229,10 +231,9 @@ function iceTable(N, M) {
   //-- Set the Verilog code
   //-- Replace the assignment of the N and M constant in the code:
   //--  N=2,  M=2, by the actual values of N and M
-  let verilog_code = obj.design.graph.blocks[3].data.code
-  verilog_code = verilog_code.replace("N = 2;", "N = " + N + ";");
+  let verilog_code = VERILOG_TABLE.replace("N = 2;", "N = " + N + ";");
   verilog_code = verilog_code.replace("M = 2;", "M = " + M + ";");
-  //console.log(verilog_code);
+  console.log(verilog_code);
   obj.design.graph.blocks[3].data.code = verilog_code;
 
   return obj;
