@@ -10,12 +10,12 @@ function iceTable_gen() {
 
   //-- Get the number of inputs from the user (html)
   let entry_N = document.getElementById("Value_N");
-  N = entry_N.value;
+  N = Number(entry_N.value);
   console.log("Entradas: " + N)
 
   //-- Get the number of outputs from the user (html)
   let entry_M = document.getElementById("Value_M");
-  M = entry_M.value;
+  M = Number(entry_M.value);
   console.log("Salidas: " + M)
 
 
