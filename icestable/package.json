@@ -1,0 +1,12 @@
+{
+  "name": "IceFactory",
+  "description": " A Javascript library for generating blocks for the ICEstudio FPGA development environment ",
+  "keywords": [
+    "FPGA", "Icestudio"
+  ],
+  "version": "0.0.1",
+  "author": "Juan Gonzalez-Gomez (Obijuan)",
+  "main": "main.js",
+  "devDependencies": {
+  }
+}

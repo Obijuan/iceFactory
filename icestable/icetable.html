@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>iceFactory</title>
+    <script src="icetable.js">
+    </script>
+    <script src="icetable_front.js">
+    </script>
+    <link rel="stylesheet" type="text/css" href="icetable.css">
+  </head>
+  <body>
+    <div class="main">
+
+    <div class="top-header">
+      iceFactory
+    </div>
+
+    <img src="images/icefactory-tables.png" alt="IceFactory image" style="width:400px">
+
+    <p><a href="https://obijuan.github.io/iceFactory/">[IceFactory: Página índice]</a></p>
+
+    <h1>Tablas combinacionales</h1>
+    <p>Genera tu  <b>bloque de Icestudio</b> para hacer circuitos <b>combinaciones</b> de N entradas y M salidas a partir de su <b>tabla de verdad</b>
+    </p>
+
+    <img src="images/table-block.png" alt="table icon" />
+
+    <h3>Paso 1: Introduce los Bits de entrada y salida</h2>
+
+    <p>
+      Bits de entrada: <input id="Value_N" type="text" name="N" size=2 value="2">
+      Bits de salida: <input id="Value_M" type="text" name="M" size=2 value="4"><br>
+    </p>
+
+    <h3>Paso 2: Genera el componente</h2>
+
+    <p>
+      <button type="button" onclick="iceTable_gen()">Generar</button>
+    </p>
+
+    <h3>Paso 3: Descarga el componente</h3>
+    <p>
+      <a href="" id="obj_file"></a>
+    </p>
+
+    <h1>Más información</h1>
+    <ul>
+      <li> <a href="https://github.com/Obijuan/digital-electronics-with-open-FPGAs-tutorial/wiki/V%C3%ADdeo-19:-Circuitos-combinacionales">Tutorial 19: Circuitos combinacionales</a>  </li>
+    </ul>
+
+    </div>
+  </body>
+</html>
