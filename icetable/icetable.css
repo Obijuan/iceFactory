@@ -8,7 +8,7 @@
   margin-bottom: 30px;
 
   /* Box */
-  width: 400px;
+  width: 600px;
   border-style: solid;
   border: 1px solid;
   padding: 20px;
@@ -92,4 +92,26 @@ h3 {
 
 .center {
   text-align: center;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 15%;
+    padding: 15px;
+    text-align: left;
+}
+
+.column2 {
+    float: left;
+    width: 70%;
+    padding: 15px;
+    text-align: left;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+
 }
