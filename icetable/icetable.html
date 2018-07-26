@@ -37,18 +37,26 @@
 
     <h3>Paso 1: Introduce los Bits de entrada y salida</h2>
 
-    <p>
+    <p class="center">
       Bits de entrada: <input id="Value_N" type="text" name="N" size=2 value="2">
       Bits de salida: <input id="Value_M" type="text" name="M" size=2 value="4"><br>
     </p>
 
-    <h3>Paso 2: Genera el componente</h2>
+    <h3>Paso 2: Introduce el formato de los datos</h2>
+
+    <p class="center">
+      <label>Binario <input id="Value_Bin" type="radio"></label>
+      <label>Decimal <input id="Value_Dec" type="radio" checked></label>
+      <label>Hexadecimal <input id="Value_Hex" type="radio"></label>
+    </p>
+
+    <h3>Paso 3: Genera el componente</h2>
 
     <p class="center">
       <button class="butn" type="button" onclick="iceTable_gen()">Generar</button>
     </p>
 
-    <h3>Paso 3: Descarga el componente</h3>
+    <h3>Paso 4: Descarga el componente</h3>
     <p class="center">
       <a href="" id="obj_file"></a>
     </p>
