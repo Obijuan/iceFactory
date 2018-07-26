@@ -28,7 +28,7 @@ function iceTable_gen() {
   obj = iceTable(N, M, F);
 
   //-------------- Generate the icestudio file
-  const OUTPUT_FILENAME = "tabla-" + N + "-" + M + ".ice";
+  const OUTPUT_FILENAME = "tabla-" + F + "-" + N + "-" + M + ".ice";
   console.log("File generated: " + OUTPUT_FILENAME);
 
   //-- json object to plain ascii text
