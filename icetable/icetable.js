@@ -189,8 +189,8 @@ function pins(size) {
   return apins;
 }
 
-function iceTable(N, M) {
-  console.log("IceTable: Inputs: " + N + "; Outputs: " + M);
+function iceTable(N, M, F) {
+  console.log("IceTable: Inputs: " + N + "; Outputs: " + M + "; Format: " + F);
 
   //-- Debug: read the template from a file
   //let obj = JSON.parse(fs.readFileSync('table-template', 'utf8'));
@@ -233,6 +233,9 @@ function iceTable(N, M) {
   //--  N=2,  M=2, by the actual values of N and M
   let verilog_code = VERILOG_TABLE.replace("N = 2;", "N = " + N + ";");
   verilog_code = verilog_code.replace("M = 2;", "M = " + M + ";");
+  if (F == 'bin') {
+    verilog_code = verilog_code.replace("$readmemh", "$readmemb");
+  }
   console.log(verilog_code);
   obj.design.graph.blocks[3].data.code = verilog_code;
 

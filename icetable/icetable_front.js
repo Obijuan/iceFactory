@@ -10,21 +10,26 @@ function iceTable_gen() {
 
   //-- Get the number of inputs from the user (html)
   let entry_N = document.getElementById("Value_N");
-  N = Number(entry_N.value);
-  console.log("Entradas: " + N)
+  let N = Number(entry_N.value);
+  console.log("Entradas: " + N);
 
   //-- Get the number of outputs from the user (html)
   let entry_M = document.getElementById("Value_M");
-  M = Number(entry_M.value);
-  console.log("Salidas: " + M)
+  let = M = Number(entry_M.value);
+  console.log("Salidas: " + M);
+
+  //-- Get the data format from the user (html)
+  let entry_F = document.querySelectorAll('input[type=radio]:checked')[0];
+  let F = entry_F.value;
+  console.log("Formato: " + F);
 
 
   //------------ Generate the icestudio object for the NxM table
-  obj = iceTable(N, M);
+  obj = iceTable(N, M, F);
 
   //-------------- Generate the icestudio file
   const OUTPUT_FILENAME = "tabla-" + N + "-" + M + ".ice";
-  console.log("File generated: " + OUTPUT_FILENAME)
+  console.log("File generated: " + OUTPUT_FILENAME);
 
   //-- json object to plain ascii text
   let json = JSON.stringify(obj);
