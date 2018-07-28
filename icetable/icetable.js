@@ -32,7 +32,7 @@ let table_template = {
           "id": "186c4116-7846-4c8e-98a0-7376675105f1",
           "type": "basic.input",
           "data": {
-            "name": "i",
+            "name": "",
             "range": "[1:0]",
             "pins": [
               {
@@ -58,7 +58,7 @@ let table_template = {
           "id": "f9c58d8f-75fc-4483-b0d2-d584a555b1c5",
           "type": "basic.output",
           "data": {
-            "name": "q",
+            "name": "",
             "range": "[1:0]",
             "pins": [
               {
